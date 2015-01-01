@@ -1,0 +1,79 @@
+'****************************************************************
+'*  Name    : Webcam den robot kontrolü otomatik & manuel       *
+'*  Author  : OMER ERYILMAZ                                     *
+'*  Notice  : Copyright (c) 2014 [select VIEW...EDITOR OPTIONS] *
+'*          : All Rights Reserved                               *
+'*  Date    : 2.12.2014                                         *
+'*  Version : 1.0                                               *
+'*  Notes   :                                                   *
+'*          :                                                   *
+'****************************************************************
+include "tanimlamalar.pbp"
+
+TRISC=%10000000
+TRISD=%00000000
+TRISA=0
+PORTA=%111111
+
+PORTC=0 : PORTD=0
+
+symbol EN1 = PortC.1
+symbol EN2 = PortC.2
+symbol IN1 = PortD.0 
+symbol IN2 = PortD.1
+symbol IN3 = PortD.2
+symbol IN4 = PortD.3
+i VAR byte
+i=" "
+VITES var byte
+vites = 220
+T1:
+    
+    Hserin 100,t1,[STR i\1]
+    
+    pause 10
+  
+    SELECT CASE i
+        CASE "w"
+            LCDOUT $FE,1,"ILERI"
+            GOSUB ILERI
+        CASE "s"
+            LCDOUT $FE,1,"GERI"
+            GOSUB GERI
+        CASE "a"
+            GOSUB SOLA
+        CASE "d"
+            GOSUB SAGA
+        
+    end select
+GOTO T1
+
+ILERI:
+    pwm en1, vites, 10
+    in1 = 1 : in2 = 0
+    pwm en2, vites, 10
+    in3 = 1 : in4 = 0
+RETURN
+
+GERI:
+    pwm en1, vites, 10
+    in1 = 0 : in2 = 1
+    pwm en2, vites, 10
+    in3 = 0 : in4 = 1 
+RETURN
+
+SOLA:
+    pwm en1, vites, 10
+    in1 = 1 : in2 = 0
+    pwm en2, vites, 10
+    in3 = 0 : in4 = 1
+RETURN
+
+SAGA:
+    pwm en1, vites, 10
+    in1 = 0 : in2 = 1
+    pwm en2, vites, 10
+    in3 = 1 : in4 = 0
+RETURN
+
+
