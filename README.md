@@ -5,4 +5,5 @@ Eğer manuel moddaysa klavye veya form üzerindeki butonlar yardımıyla robot h
 Otomatik modda ise robotun webcam 'inden alınan görüntü C# (winform) yardımıyla bilgisayarda işleniyor.  
 Görüntüde beliren çizginin koordinatlarına göre robota komutlar gidiyor.
 
-### Uygulama Videosu : https://youtu.be/BKswu1Pi8ko
+### Uygulama Blog Yazısı : http://omereryilmaz.com/webcam-den-cizgi-izleyen-robot/
+### Uygulama Videosu : https://youtu.be/CGDvk_nTW5k
